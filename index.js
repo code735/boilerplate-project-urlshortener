@@ -38,11 +38,12 @@ app.post('/api/shorturl', function(req, res) {
           res.send({ error: 'invalid url' })
         }
         else {
-          array.push({ original_url : req.body.url, short_url : id + 1 })
-          
+          id++;
+          array.push({ original_url : req.body.url, short_url : id})
+
           res.json({
             original_url : req.body.url,
-            short_url : id + 1
+            short_url : id
           })
         }
       })
